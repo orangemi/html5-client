@@ -1,0 +1,43 @@
+#main {  }
+#main>.top { height: 20px; top: 0px; bottom:auto; left: 0px; right: 0px; }
+#main>.top { background-color: red; }
+
+#main>.body { top: 20px; bottom: 20px; left: 0px; right: 0px; }
+
+#main>.bottom { height: 20px; top:auto; bottom: 0px; left: 0px; right: 0px; }
+#main>.bottom { background-color: yellow; }
+
+#main>.pop { top: 0; bottom: 0; left: 0; right: 0; }
+#main>.pop.hide { display: none; }
+
+#main>.pop>.menu {
+	padding: 10px;
+	background: #fff;
+	border: solid 1px #999;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 0 15px 5px #bbb;
+	box-shadow: 0 0 15px 5px #bbb;
+	position: absolute;
+	overflow-y: scroll;
+	min-width: 50px;
+}
+
+#main>.pop>.dialog {
+	margin:0 auto;
+	left: 50px;
+	right: 50px;
+	top: 40px;
+	bottom: 40px;
+	padding: 10px;
+	background: #fff;
+	border: solid 1px #999;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 0 15px 5px #bbb;
+	box-shadow: 0 0 15px 5px #bbb;
+	position: absolute;
+	overflow-y: scroll;
+}
+
+.dialog>.top { min-height: 15px; }
+.dialog>.top>.close { float: right; }
+.dialog>hr> {  }

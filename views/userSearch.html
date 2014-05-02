@@ -1,0 +1,27 @@
+<div class="search">
+	<label class="user_id">
+		<span>user_id: </span>
+		<input class="edit long" type="text" data-col="id" data-prefix="" />
+	</label>
+	<label class="username">
+		<span>username: </span>
+		<input class="edit long" type="text" data-col="username" data-prefix="like" />
+	</label>
+	<label class="regtime">
+		<span>register time from: </span>
+		<input class="edit" type="text" data-col="regFrom" data-prefix="min" value="0" />
+		<span> to </span>
+		<input class="edit" type="text" data-col="regTo" data-prefix="max" value="0" />
+	</label>
+	<label class="logintime">
+		<span>login time from: </span>
+		<input class="edit" type="text" data-col="loginFrom" data-prefix="max" value="0" />
+		<span> to </span>
+		<input class="edit" type="text" data-col="loginTo" data-prefix="min" value="0" />
+	</label>
+	<label class="submit">
+		<button class="search">search</button>
+	</label>
+</div>
+<hr />
+<div class="result"></div>

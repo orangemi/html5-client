@@ -1,0 +1,275 @@
+<div class="buttons">
+	<button class="refresh">Refresh</button>
+	<button class="saveplayer">Save Player</button>
+	<button class="addToReward">addToReward</button>
+	<button class="addToBroadcast">addToBroadcast</button>
+</div>
+<hr />
+<section class="userinformation">
+	<header><h2>User</h2></header>
+	<div>
+		<div class="row id">
+			<label class="key">ID</label>
+			<label class="value"><span class="edit" data-col="id" /></label>
+		</div>
+		<div class="row username">
+			<label class="key">username</label>
+			<label class="value"><input class="edit long" data-col="username" /></label>
+		</div>
+		<div class="row status">
+			<label class="key">status</label>
+			<label class="value"><input class="edit long" data-col="status" /></label>
+		</div>
+		<div class="row regtime">
+			<label class="key">regtime</label>
+			<label class="value"><span class="edit long" data-type="time" data-col="regtime" /></label>
+		</div>
+		<div class="row logintime">
+			<label class="key">logintime</label>
+			<label class="value"><span class="edit long" data-col="logintime" /></label>
+		</div>		
+	</div>
+	<div class="clear"></div>
+</section>
+<section class="basic">
+	<header><h2>Player</h2></header>
+	<div>
+		<div class="row id">
+			<label class="key">ID</label>
+			<label class="value"><span class="edit" data-col="id" disabled="disabled" /></label>
+		</div>
+		<div class="row nickname">
+			<label class="key">nickname</label>
+			<label class="value"><input class="edit long" data-col="nickname" /></label>
+		</div>
+		<div class="row cashmoney">
+			<label class="key">cashmoney</label>
+			<label class="value"><input class="edit long" data-col="cashmoney" /></label>
+		</div>
+		<div class="row session">
+			<label class="key">session</label>
+			<label class="value"><span class="edit verylong" data-col="session" disabled="disabled" /></label>
+		</div>
+		<div class="row stamina">
+			<label class="key">stamina</label>
+			<label class="value">
+				<input class="edit" data-col="stamina" />
+				/
+				<span class="value" data-col="maxstamina"></span>
+				( CD :
+				<span class="edit long" data-col="stamina_cd" />
+				)
+			</label>
+		</div>
+		<div class="row coin">
+			<label class="key">coin</label>
+			<label class="value"><input class="edit long" data-col="coin" /></label>
+		</div>
+		<div class="row vipRemainCredit">
+			<label class="key">vipRemainCredit</label>
+			<label class="value"><input class="edit long" data-col="vipRemainCredit" disabled="disabled" /></label>
+		</div>
+		<div class="row vipLvNeedCredit">
+			<label class="key">vipLvNeedCredit</label>
+			<label class="value"><input class="edit long" data-col="vipLvNeedCredit" disabled="disabled" /></label>
+		</div>
+		<div class="row grade">
+			<label class="key">grade</label>
+			<label class="value"><input class="edit" data-col="grade" /></label>
+		</div>
+		<div class="row honor">
+			<label class="key">honor</label>
+			<label class="value"><input class="edit long" data-col="honor" /></label>
+		</div>
+		<div class="row pvp">
+			<label class="key">pvp</label>
+			<label class="value">
+				<input class="edit" data-col="pvp" />
+				/
+				<span class="edit" data-col="maxpvp"></span>
+				( CD : 
+				<span class="edit" data-col="pvp_cd"></span>
+				)
+			</label>
+		</div>
+		<div class="row h_bag">
+			<label class="key">h_bag</label>
+			<label class="value"><input class="edit" data-col="h_bag" /></label>
+		</div>
+		<div class="row e_bag">
+			<label class="key">e_bag</label>
+			<label class="value"><input class="edit" data-col="e_bag" /></label>
+		</div>
+		<div class="row country">
+			<label class="key">country</label>
+			<label class="value"><input class="edit" data-col="country" /></label>
+		</div>
+		<div class="row gender">
+			<label class="key">gender</label>
+			<label class="value"><input class="edit" data-col="gender" /></label>
+		</div>
+		<div class="row first_cash">
+			<label class="key">first_cash</label>
+			<label class="value"><input class="edit" data-col="first_cash" /></label>
+		</div>
+		<div class="row m_uid">
+			<label class="key">m_uid</label>
+			<label class="value"><input class="edit long" data-col="m_uid" /></label>
+		</div>
+		<div class="row exp">
+			<label class="key">exp</label>
+			<label class="value"><input class="edit long" data-col="exp" /></label>
+		</div>
+		<div class="row totalexp">
+			<label class="key">totalexp</label>
+			<label class="value"><input class="edit long" data-col="totalexp" /></label>
+		</div>
+		<div class="row totalpay">
+			<label class="key">totalpay</label>
+			<label class="value"><input class="edit long" data-col="totalpay" /> ( VIP: <span data-col="vip" /> )</label>
+		</div>
+		<div class="row logtime">
+			<label class="key">logtime</label>
+			<label class="value"><span class="edit long" data-col="logtime" data-type="time" disabled="disabled"/></label>
+		</div>
+		<div class="row regtime">
+			<label class="key">regtime</label>
+			<label class="value"><span class="edit long" data-col="regtime" data-type="time" disabled="disabled"/></label>
+		</div>
+		<div class="row login_track">
+			<label class="key">login_track</label>
+			<label class="value"><input class="edit long" data-col="login_track" /></label>
+		</div>
+		<div class="row product_id">
+			<label class="key">product_id</label>
+			<label class="value"><input class="edit long" data-col="product_id" /></label>
+		</div>
+		<div class="row last">
+			<label class="key">last</label>
+			<label class="value"><input class="edit long" data-col="last" /></label>
+		</div>
+		
+		<div class="row fuyanreward">
+			<label class="key">fuyanreward</label>
+			<label class="value"><input class="edit long" data-col="fuyanreward" /></label>
+		</div>
+		<div class="row fuyannum">
+			<label class="key">fuyannum</label>
+			<label class="value"><input class="edit long" data-col="fuyannum" /></label>
+		</div>
+		<div class="row fuyanstate">
+			<label class="key">fuyanstate</label>
+			<label class="value"><input class="edit long" data-col="fuyanstate" /></label>
+		</div>
+		<div class="row total_usecash">
+			<label class="key">total_usecash</label>
+			<label class="value"><input class="edit long" data-col="total_usecash" /></label>
+		</div>
+		<div class="row upgrade_reward">
+			<label class="key">upgrade_reward</label>
+			<label class="value"><input class="edit long" data-col="upgrade_reward" /></label>
+		</div>
+		<div class="row first_chicken_state">
+			<label class="key">first_chicken_state</label>
+			<label class="value"><input class="edit" data-col="first_chicken_state" disabled="disabled"/></label>
+		</div>
+		<div class="row second_chicken_state">
+			<label class="key">second_chicken_state</label>
+			<label class="value"><input class="edit" data-col="second_chicken_state" disabled="disabled"/></label>
+		</div>
+		<div class="row formationinfo">
+			<label class="key">formation</label>
+			<label class="value">
+				<span data-col="queue" />
+				:
+				<span data-col="formation" />
+				<br />
+				<div class="formation" data-type="queue">
+					<div class="slot slot1" ></div>
+					<div class="slot slot2" ></div>
+					<div class="slot slot3" ></div>
+					<div class="clear"></div>
+					<div class="slot slot4" ></div>
+					<div class="slot slot5" ></div>
+					<div class="slot slot6" ></div>
+					<div class="clear"></div>
+				</div>	
+			</label>
+		</div>
+		<div class="row total_login">
+			<label class="key">total_login</label>
+			<label class="value"><input class="edit" data-col="total_login" /></label>
+		</div>
+		<div class="row total_login_rewardinfo">
+			<label class="key">total_login_reward</label>
+			<label class="value"><span data-col="total_login_reward" /></label>
+		</div>
+		<div class="row">
+			<label class="key"></label>
+			<label class="value">
+			<div class="total_login_reward" data-type="total_login_reward">
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				
+				<div class="clear"></div>
+				<div class="slot"></div>	
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				
+				<div class="clear"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				
+				<div class="clear"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				
+				<div class="clear"></div>
+				<div class="slot"></div>
+				<div class="slot"></div>
+				<div class="clear"></div>
+			</div>	
+		</div>
+	</div>
+	<div class="clear"></div>
+</section>
+
+<section class="heroes">
+	<header><h2>Hero</h2></header>
+	<div></div>
+</section>
+<section class="equips">
+	<header><h2>Equip</h2></header>
+	<div></div>
+</section>
+<section class="pieces">
+	<header><h2>Piece</h2></header>
+	<div></div>
+</section>
+<section class="items">
+	<header><h2>Item</h2></header>
+	<div></div>
+</section>
+<section class="messages">
+	<header><h2>Message</h2></header>
+	<div></div>
+</section>
