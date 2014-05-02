@@ -3,8 +3,10 @@ define([
 	'underscore',
 	'app/views/home',
 	'app/views/city',
-	'app/views/dialog'],
-	function (Backbone, _, HomeView, CityView, DialogView) {
+	'app/views/dialog',
+	'app/views/menu',
+	],
+	function (Backbone, _, HomeView, CityView, DialogView, MenuView) {
 		var Router = Backbone.Router.extend({
 			app : null,
 
@@ -20,6 +22,13 @@ define([
 					//app.view,(view);
 					app.view.showPop(view);
 				};
+
+				//TODO code should be re'managed.
+				app.showMenu = function(view, x, y) {
+					app.view.$el.append(view.render().$el);
+					view.setPosition(x - app.view.$el.offset().left, y - app.view.$el.offset().top);
+				};
+
 			},
 
 			goHome : function() {

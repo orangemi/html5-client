@@ -10,7 +10,7 @@
 #main>.pop { top: 0; bottom: 0; left: 0; right: 0; }
 #main>.pop.hide { display: none; }
 
-#main>.pop>.menu {
+#main>.menu {
 	padding: 10px;
 	background: #fff;
 	border: solid 1px #999;
