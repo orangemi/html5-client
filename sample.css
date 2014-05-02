@@ -11,8 +11,8 @@
 #main>.pop.hide { display: none; }
 
 #main>.menu {
-	padding: 10px;
-	background: #fff;
+	padding: 3px;
+	background-color: #fff;
 	border: solid 1px #999;
 	border-radius: 4px;
 	-webkit-box-shadow: 0 0 15px 5px #bbb;
@@ -20,6 +20,11 @@
 	position: absolute;
 	overflow-y: scroll;
 	min-width: 50px;
+}
+
+.menu>.menu_item:hover {
+	background-color: #3875d7;
+	color: #fff;
 }
 
 #main>.pop>.dialog {

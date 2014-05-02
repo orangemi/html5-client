@@ -1,6 +1,6 @@
 define([
-	'marionette', 'underscore', 'app/app', 'text!app/views/home.html', 'app/views/city'
-	], function (Marionette, _, app, Html) {
+'marionette', 'underscore', 'app/app', 'text!app/views/home.html', ],
+function (Marionette, _, app, Html) {
 	var HomeView = Marionette.Layout.extend({
 		id : 'main',
 		tagName : 'box',
@@ -13,18 +13,13 @@ define([
 			"popRegion" : ">.pop",
 		},
 
-		initialize : function() {
-
-		},
+		initialize : function() {},
 
 		onRender : function() {
 			this.$el.css({
 				width: app.config.get('width') + 'px',
 				height: app.config.get('height') + 'px'
 			});
-			//TODO this is a demo test code.
-			app.router.show();
-
 		},
 
 		showPop : function(view) {

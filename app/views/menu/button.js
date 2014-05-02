@@ -3,7 +3,7 @@ define([
 	function (Marionette, _) {
 		var ButtonMenu = Marionette.Layout.extend({
 			template : _.template(''),
-			className : 'menu_button',
+			className : 'menu_item menu_button',
 			events : {
 				'click' : 'onClick'
 			},

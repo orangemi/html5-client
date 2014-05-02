@@ -29,9 +29,9 @@ define(
 				console.log('Application start...');
 
 				var $parent = this.$parent = options.$parent || $("body");
-				//$parent.append(homeView.render().$el);
-				this.router.goHome().$el.appendTo($parent);
-				// Backbone.history.start();
+				
+				this.router.render().$el.appendTo($parent);
+				Backbone.history.start();
 			}
 
 		});
