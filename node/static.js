@@ -1,10 +1,12 @@
 var Http = require('http');
 require('./utils/date.js');
+var fs = require('fs');
 
 var log = function(msg) {
 	var date = new Date();
 	date = date.format("[yyyy-mm-dd HH:MM:ss]");
 	console.log(date + " " + msg);
+	fs.appendFile(logpath + '/http.log', date + " " + msg + "\n");
 };
 
 var mimes = {
@@ -22,7 +24,7 @@ var mimes = {
 };
 
 // -----------------------------------------------------------------
-var root = "./";
+var root = "../";
 var logpath = "../logs";
 var port = 80;
 // -----------------------------------------------------------------
@@ -36,7 +38,7 @@ var http = Http.createServer(function(req, res) {
 	var type = /\.(\w+)$/.test(filename) ? /\.(\w+)$/.exec(filename)[1] : '';
 	var mimetype = mimes[type] ? mimes[type] : mimes[''];
 
-	require('fs').readFile(filename, function(err, data) {
+	fs.readFile(filename, function(err, data) {
 		if (err) {
 			res.writeHead(404);
 			res.end();
@@ -48,10 +50,7 @@ var http = Http.createServer(function(req, res) {
 		res.end();
 		log('GET ' + req.url + ' 200');
 	});
-	//console.log(req);
-	//console.log(res);
+
 }).listen(port);
 
-
-
-console.log('HTTP Server http://0.0.0.0:' + port + '/ start');
+log('HTTP Server http://0.0.0.0:' + port + '/ start');
