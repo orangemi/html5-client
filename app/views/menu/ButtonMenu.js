@@ -1,29 +1,27 @@
-define([
-	'marionette', 'underscore',],
-	function (Marionette, _) {
-		var ButtonMenu = Marionette.Layout.extend({
-			template : _.template(''),
-			className : 'menu_item menu_button',
-			events : {
-				'click' : 'onClick'
-			},
+define(['marionette', 'underscore',], function (Marionette, _) {
+	var ButtonMenu = Marionette.Layout.extend({
+		template : _.template(''),
+		className : 'menu_item menu_button',
+		events : {
+			'click' : 'onClick'
+		},
 
-			text : '',
+		text : '',
 
-			initialize : function(options) {
-				options = options || {};
-				this.text = options.text || this.text;
-			},
+		initialize : function(options) {
+			options = options || {};
+			this.text = options.text || this.text;
+		},
 
-			onRender : function() {
-				this.$el.html(this.text);
-			},
+		onRender : function() {
+			this.$el.html(this.text);
+		},
 
-			onClick : function() {
-				this.trigger('menu:ButtonClick', this);
-			},
-		});
+		onClick : function() {
+			this.trigger('menu:ButtonClick', this);
+			this.trigger('closeMenu');
+		},
+	});
 
-		return ButtonMenu;
-	}
-);
+	return ButtonMenu;
+});
