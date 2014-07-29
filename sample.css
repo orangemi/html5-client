@@ -60,3 +60,26 @@
 .dialog>.top { min-height: 15px; }
 .dialog>.top>.close { float: right; }
 .dialog>hr> {  }
+
+
+.tablist {
+	position:absolute; top: 0; bottom: 0; left: 0; right: 0;
+}
+.tablist>.tabs>.tab {
+	float:left;
+	margin-right: 10px;
+}
+
+.tablist>.pages {
+	position: relative;
+	display: -moz-box; 
+	display: -webkit-box; 
+	display: box;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.tablist>.pages>.page {
+	width: 100%;
+	position: relative;
+}

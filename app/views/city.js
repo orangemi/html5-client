@@ -1,14 +1,15 @@
 define([
-'marionette', 'underscore', 'app/app', 'text!app/views/City.html', 'app/views/menu/Menu'],
-function (Marionette, _, app, Html, MenuView) {
+'marionette', 'underscore', 'app/app', 'text!app/views/City.html', 'app/views/menu/Menu', 'app/views/tab/Tab'],
+function (Marionette, _, app, Html, MenuView, TabView) {
 	var View = Marionette.Layout.extend({
 		tagName : 'box',
 		className : 'city',
 		template : _.template(Html),
 
 		events : {
-			'click >button' : 'onButtonClick',
 			'click >button.hero' : 'onHeroButtonClick',
+			'click >button.info' : 'onInfoButtonClick',
+			'click >button.item' : 'onItemButtonClick',
 		},
 
 		initialize : function() {
@@ -18,7 +19,16 @@ function (Marionette, _, app, Html, MenuView) {
 			app.router.navigate('heroes', { trigger: true });
 		},
 
-		onButtonClick : function(evt) {
+		onItemButtonClick : function() {
+			var tabView = new TabView({ tabs : [
+				{ name : 'text1', view : new View() },
+				{ name : 'text2', view : new View() },
+			]});
+
+			tabView.render().$el.appendTo(this.$el);
+		},
+
+		onInfoButtonClick : function(evt) {
 
 			var menuView = new MenuView({ menus:[
 				'1-1',
