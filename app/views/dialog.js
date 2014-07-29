@@ -1,5 +1,5 @@
 define([
-'marionette', 'underscore', 'app/app', 'text!app/views/dialog.html'],
+'marionette', 'underscore', 'app/app', 'text!app/views/Dialog.html'],
 function (Marionette, _, app, Html) {
 	var View = Marionette.Layout.extend({
 		className : 'dialog',

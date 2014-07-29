@@ -10,7 +10,7 @@
 #main>.pop { top: 0; bottom: 0; left: 0; right: 0; }
 #main>.pop.hide { display: none; }
 
-#main>.menu {
+.menu {
 	padding: 3px;
 	background-color: #fff;
 	border: solid 1px #999;
@@ -20,14 +20,28 @@
 	position: absolute;
 	overflow-y: scroll;
 	min-width: 50px;
+	margin: -10px;
 }
 
-.menu>.menu_item:hover {
+.menu_item:hover, .menu_item.active {
 	background-color: #3875d7;
 	color: #fff;
 }
 
-#main>.pop>.dialog {
+.menu_item.menu_check>em {
+	display: inline-block;
+	border : solid 1px #000;
+	background : #fff;
+	width: 10px;
+	height: 10px;
+	margin-right: 5px;
+}
+
+.menu_item.menu_check.check>em {
+	background : #000;
+}
+
+.dialog {
 	margin:0 auto;
 	left: 50px;
 	right: 50px;

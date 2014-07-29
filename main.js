@@ -74,10 +74,10 @@ require.config({
 	return env;
 })(window);
 
-require(['app/app', 'app/router'], function(app, Router) {
+require(['app/app', 'app/Router'], function(app, Router) {
 	$(document).ready(function() {
 		console.log("DOM is ready");
 		app.router = new Router(app);
 		app.start();
 	});
-})
+});

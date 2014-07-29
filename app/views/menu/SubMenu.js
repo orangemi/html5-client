@@ -1,9 +1,9 @@
 define([
 	'marionette', 'underscore',],
 	function (Marionette, _) {
-		var ButtonMenu = Marionette.Layout.extend({
+		var SubMenu = Marionette.Layout.extend({
 			template : _.template(''),
-			className : 'menu_item menu_button',
+			className : 'menu_item menu_sub',
 			events : {
 				'click' : 'onClick'
 			},
@@ -20,10 +20,16 @@ define([
 			},
 
 			onClick : function() {
-				this.trigger('click');
-			}
+				this.toggleActive(true);
+				this.trigger('menu:menuClick', this);
+				this.trigger('click', this);
+			},
+
+			toggleActive : function(flag) {
+				this.$el.toggleClass('active', flag);
+			},
 		});
 
-		return ButtonMenu;
+		return SubMenu;
 	}
 );

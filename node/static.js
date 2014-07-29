@@ -26,7 +26,7 @@ var mimes = {
 // -----------------------------------------------------------------
 var root = "../";
 var logpath = "../logs";
-var port = 80;
+var port = 8010;
 // -----------------------------------------------------------------
 
 var http = Http.createServer(function(req, res) {

@@ -1,7 +1,8 @@
 define([
 'backbone', 'underscore',
-'app/views/home', 'app/views/city', 'app/views/heroList', ],
-function (Backbone, _, HomeView, CityView, HeroListView) {
+'app/views/Dialog',
+'app/views/Home', 'app/views/City', 'app/views/HeroList', ],
+function (Backbone, _, DialogView, HomeView, CityView, HeroListView) {
 	var Router = Backbone.Router.extend({
 		app : null,
 		history : null,

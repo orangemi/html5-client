@@ -1,5 +1,5 @@
 define([
-'marionette', 'underscore', 'app/app', 'text!app/views/home.html', ],
+'marionette', 'underscore', 'app/app', 'text!app/views/Home.html', ],
 function (Marionette, _, app, Html) {
 	var HomeView = Marionette.Layout.extend({
 		id : 'main',

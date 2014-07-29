@@ -1,5 +1,5 @@
 define([
-'marionette', 'underscore', 'app/app', 'text!app/views/city.html', 'app/views/menu'],
+'marionette', 'underscore', 'app/app', 'text!app/views/City.html', 'app/views/menu/Menu'],
 function (Marionette, _, app, Html, MenuView) {
 	var View = Marionette.Layout.extend({
 		tagName : 'box',
@@ -15,21 +15,45 @@ function (Marionette, _, app, Html, MenuView) {
 		},
 
 		onHeroButtonClick : function() {
-			app.router.navigate('heroes');
+			app.router.navigate('heroes', { trigger: true });
 		},
 
 		onButtonClick : function(evt) {
-			// //debugger;
-			// //app.showDialog();
-			// var menuView = new MenuView({ menus:[
-			// 	'123', 'abc', '', '123', 'abc', ''
-			// ]});
 
-			// menuView.on('buttonClick', function() {
-			// 	app.showDialog();
-			// });
+			var menuView = new MenuView({ menus:[
+				'1-1',
+				{ type:'input', text:'1-2:' },
+				{ type:'menu', text:'1-3 >>>', menus : [
+					'1-3-1',
+					{ type:'input', text: '1-3-2:' },
+					{ type:'check', text: '1-3-2:' },
+					{ type:'menu', text:'>>', menus : [
+						'234',
+						'834',
+						'434',
+						'234',
+					]}
+				]},
+				{ type:'menu', text:'>>>', menus : [
+					'200',
+					{ type:'input', text: 'dd:' },
+					{ type:'menu', text:'>>', menus : [
+						'234',
+						'234',
+						'234',
+						'234',
+					]}
+				]}
+			]});
 
-			// app.showMenu(menuView, evt.clientX, evt.clientY);
+			menuView.on('menu:ButtonClick', function() {
+				console.log('menu clicked');
+				//app.showDialog();
+			});
+			menuView.show();
+			menuView.setPosition(evt.clientX, evt.clientY);
+
+			//app.showMenu(menuView, evt.clientX, evt.clientY);
 		}
 	});
 	return View;
