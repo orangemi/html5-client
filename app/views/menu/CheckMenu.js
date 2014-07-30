@@ -1,35 +1,32 @@
 define(['marionette', 'underscore',], function (Marionette, _) {
 	var CheckMenu = Marionette.Layout.extend({
-		template : _.template(''),
+		tagName : 'li',
+		template : _.template('<a><%=text%></a>'),
+		//template : _.template('<a><%=text%></a>'),
 		className : 'menu_item menu_check',
 
 		checkStatus : false,
-
-		$span : null,
-		$check : null,
 
 		events : {
 			'click' : 'onClick'
 		},
 
-		text : '',
-
 		initialize : function(options) {
 			options = options || {};
-			this.text = options.text || this.text;
-			this.checkStatus = options.check || false;
+			this.model = new Backbone.Model({
+				text: options.text || '',
+				check: options.check || false,
+			});
 		},
 
 		toggleCheck : function(flag) {
-			if (flag === undefined) flag = !this.checkStatus;
-			this.checkStatus = flag;
+			if (flag === undefined) flag = !this.model.get('check');
+			this.model.set('check', flag);
 			this.$el.toggleClass('check', flag);
 		},
 
 		onRender : function() {
-			var $check = this.$check = $('<em>').appendTo(this.$el);
-			var $span = this.$span = $('<span>').html(this.text).appendTo(this.$el);
-			this.toggleCheck(this.checkStatus);
+			this.toggleCheck(this.model.get('check'));
 		},
 
 		onClick : function() {

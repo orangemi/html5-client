@@ -3,8 +3,8 @@ define(['marionette', 'underscore'], function (Marionette, _) {
 var _id = 1;
 
 	var MenuList = Marionette.Layout.extend({
-
-		className : 'menu',
+		tagName : 'ul',
+		className : 'menu_list dropdown-menu',
 		template : _.template(''),
 
 		menus : null,
@@ -30,6 +30,7 @@ this._id = _id++;
 				self.addItemView(item);
 			});
 			this.$el.attr('tabindex', 1);
+			this.$el.show();
 			setTimeout(function() {
 				self.$el.focus();
 			});

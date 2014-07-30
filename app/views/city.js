@@ -36,15 +36,15 @@ function (Marionette, _, app, Html, MenuView, TabView) {
 				{ type:'menu', text:'1-3 >>>', menus : [
 					'1-3-1',
 					{ type:'input', text: '1-3-2:' },
-					{ type:'check', text: '1-3-2:' },
-					{ type:'menu', text:'>>', menus : [
+					{ type:'check', text: '1-3-3' },
+					{ type:'menu', text:'1-3-4 >>', menus : [
 						'234',
 						'834',
 						'434',
 						'234',
 					]}
 				]},
-				{ type:'menu', text:'>>>', menus : [
+				{ type:'menu', text:'1-4 >>>', menus : [
 					'200',
 					{ type:'input', text: 'dd:' },
 					{ type:'menu', text:'>>', menus : [

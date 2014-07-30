@@ -1,20 +1,17 @@
-define(['marionette', 'underscore',], function (Marionette, _) {
+define(['marionette', 'backbone', 'underscore',], function (Marionette, Backbone, _) {
 	var ButtonMenu = Marionette.Layout.extend({
-		template : _.template(''),
+		tagName : 'li',
+		template : _.template('<a><%=text%></a>'),
 		className : 'menu_item menu_button',
 		events : {
 			'click' : 'onClick'
 		},
 
-		text : '',
-
 		initialize : function(options) {
 			options = options || {};
-			this.text = options.text || this.text;
-		},
-
-		onRender : function() {
-			this.$el.html(this.text);
+			this.model = new Backbone.Model({
+				text: options.text || '',
+			});
 		},
 
 		onClick : function() {

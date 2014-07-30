@@ -1,13 +1,12 @@
-define(['marionette', 'underscore', 'text!app/views/tab/Tab.html'], function (Marionette, _, Html) {
+define(['marionette', 'backbone', 'underscore', 'text!app/views/tab/Tab.html'], function (Marionette, Backbone, _, Html) {
 	var TabView = Marionette.Layout.extend({
-		tagName : 'box',
-		template : _.template(''),
+		tagName : 'li',
 		className : 'tab',
+		template : _.template('<a><%=name%></a>'),
 		isActive : false,
 
 		name : null,
 		view : null,
-		$page : null,
 
 		events : {
 			'click' : 'onClick'
@@ -15,19 +14,33 @@ define(['marionette', 'underscore', 'text!app/views/tab/Tab.html'], function (Ma
 
 		initialize : function(options) {
 			options = options || {};
-			this.name = options.name || 'tab';
-			this.view = options.view || new Marionette.Layout();
-			this.isActive = false;
+			this.model = options.model;
+			//this.view = options.view || new Marionette.Layout();
+			this.model.$page = this.model.$page || $('<div>');
+			
+			//TODO bind event
+			this.listenTo(this.model, 'change', this.onModelChange);
 		},
 
 		onRender : function() {
-			var $content = this.view.render().$el;
-			this.$el.html(this.name);
-			$content.appendTo(this.$page);
+			var view = this.model.get('view') || new Marionette.Layout();
+			var $content = view.render().$el;
+			$content.appendTo(this.model.$page);
 		},
 
 		onClick : function() {
-			this.trigger('click', this.$page);
+			this.model.set('active', true);
+		},
+
+		onModelChange : function() {
+			var active = this.model.get('active');
+			this.toggleActive(active);
+			if (active) this.trigger('active', this.model);
+		},
+
+		toggleActive : function(flag) {
+			if (!flag) flag = false;
+			this.$el.toggleClass('active', flag);
 		},
 
 		getIndex : function() {
@@ -48,34 +61,45 @@ define(['marionette', 'underscore', 'text!app/views/tab/Tab.html'], function (Ma
 
 			var self = this;
 			var tabs = this.tabs = options.tabs;
+
+			this.collection = new Backbone.Collection();
+			this.listenTo(this.collection, 'add', this.onAddTab);
 		},
 
 		onRender : function() {
 			var self = this;
-			var $tabs = this.$tabs = this.$el.find('.tabs');
+			var $tabs = this.$tabs = this.$el.find('.nav-tabs');
 			var $pages = this.$pages = this.$el.find('.pages');
 
 			if (this.tabs) this.tabs.forEach(function(tab) {
-				self.addTab(tab);
+				self.collection.add(tab);
 			});
 
 		},
 
-		addTab : function(item) {
-			var tabView = new TabView(item);
-			tabView.$page = $('<div>').addClass('page').appendTo(this.$pages);
+		onAddTab : function(itemModel) {
+			var self = this;
+			itemModel.$page = $('<div>').addClass('page').appendTo(this.$pages);
+			var tabView = new TabView({model: itemModel});
 			tabView.render().$el.appendTo(this.$tabs);
 
 			//TODO bind events
-			tabView.on('click', function($page) {
-				var index = $page.index();
-				$page.parent().children().css({
-					'-webkit-transform' : 'translateX(-' + (index * 100) + '%)',
-				});
-
-			});
-
+			this.listenTo(tabView, 'active', this.onTabActive);
 		},
+
+		onTabActive : function(tabModel) {
+			this.collection.forEach(function(model) {
+				if (tabModel != model) model.set('active', false);
+			});
+			//self.trigger('unactive');
+			var $page = tabModel.$page;
+			var index = $page.index();
+			$page.parent().children().css({
+				'-webkit-transform' : 'translateX(-' + (index * 100) + '%)',
+				'-moz-transform' : 'translateX(-' + (index * 100) + '%)',
+				'transform' : 'translateX(-' + (index * 100) + '%)',
+			});
+		}
 	});
 
 	return TabListView;

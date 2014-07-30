@@ -1,22 +1,20 @@
-define(['marionette', 'underscore', 'app/views/menu/MenuList'], function (Marionette, _, MenuListView) {
+define(['marionette', 'backbone', 'underscore', 'app/views/menu/MenuList'], function (Marionette, Backbone, _, MenuListView) {
 	var SubMenu = Marionette.Layout.extend({
-		template : _.template(''),
+		tagName : 'li',
+		template : _.template('<a><%=text%></a>'),
 		className : 'menu_item menu_sub',
 		events : {
-			'click' : 'onClick'
+			'click' : 'onClick',
+			'mouseover' : 'onHover',
+			'mouseleave' : 'onLeave',
 		},
-
-		text : '',
-		menus : null,
 
 		initialize : function(options) {
 			options = options || {};
-			this.text = options.text || this.text;
-			this.menus = options.menus || [];
-		},
-
-		onRender : function() {
-			this.$el.html(this.text);
+			this.model = new Backbone.Model({
+				text:	options.text || '',
+				menus:	options.menus || [],
+			});
 		},
 
 		onClick : function() {
@@ -25,9 +23,18 @@ define(['marionette', 'underscore', 'app/views/menu/MenuList'], function (Marion
 			this.openMenu();
 		},
 
+		// onHover : function() {
+		// 	this.toggleActive(true);
+		// 	this.trigger('menu:menuClick', this);
+		// 	this.openMenu();
+		// },
+		// onLeave : function() {
+		// 	this.toggleActive(false);
+		// },
+
 		openMenu : function() {
 			var self = this;
-			var subMenu = new MenuListView({ menus : this.menus });
+			var subMenu = new MenuListView({ menus : this.model.get('menus') });
 			subMenu.on('all', function(event) {
 				if (event == 'focus' || event == 'blur' || event == 'closeMenu') {
 					self.trigger(event);

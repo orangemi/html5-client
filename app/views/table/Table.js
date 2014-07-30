@@ -1,6 +1,7 @@
 define(['marionette', 'underscore', 'app/app', 'text!app/views/table/Table.html', 'app/views/table/Row', 'app/views/menu/Menu'], function (Marionette, _, app, TableHtml, TableRowView, MenuView) {
 	var View = Marionette.Layout.extend({
 		tagName : "table",
+		className : "table table-condensed table-hover",
 		template : _.template(TableHtml),
 
 		caption : null,
@@ -103,7 +104,7 @@ define(['marionette', 'underscore', 'app/app', 'text!app/views/table/Table.html'
 
 		renderColumns : function() {
 			var self = this;
-			var $thead = this.$thead = $('<tr>').addClass('head').appendTo(this.$tbody);
+			var $thead = this.$thead = $('<tr>').addClass('thead row').appendTo(this.$tbody);
 			this.columns.forEach(function(column) {
 				self.onAddColumn(column);
 			});

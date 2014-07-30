@@ -1,6 +1,7 @@
 define(['marionette', 'backbone', 'underscore'], function (Marionette, Backbone, _) {
 	var View = Marionette.Layout.extend({
 		tagName : 'tr',
+		className : 'row',
 		template : _.template(''),
 		columns : null,
 
