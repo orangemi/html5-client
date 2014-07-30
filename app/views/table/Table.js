@@ -42,7 +42,7 @@ define(['marionette', 'underscore', 'app/app', 'text!app/views/table/Table.html'
 			});
 			
 			//TODO: add listeners
-			this.listenTo(rowView, '*', function() {
+			this.listenTo(rowView, 'all', function() {
 				self.trigger.apply(self, arguments);
 			});
 

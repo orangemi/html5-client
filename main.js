@@ -3,15 +3,18 @@ require.config({
 		underscore: {exports: '_'},
 		marionette: {
 			deps: ['jquery', 'underscore', 'backbone'],
-			exports: 'Marionette'
+			exports: 'Marionette',
 		},
 		backbone: {
 			deps: ['jquery', 'underscore'],
-			exports: 'Backbone'
+			exports: 'Backbone',
+		},
+		bootstrap : {
+			deps: ['jquery'],
 		},
 		backboneLocalstorage: {
 			deps: ['backbone'],
-			exports: 'Store'
+			exports: 'Store',
 		}
 	},
 	paths: {
@@ -23,6 +26,7 @@ require.config({
         text: 'vender/requirejs.text-2.0.10',
         marionette : 'vender/marionette-1.4.1',
 		minify : 'vender/minify.json-0.1',
+		bootstrap : 'vender/bootstrap-3.2.0',
         //project lib
 		models : 'models',
 		views : 'views'

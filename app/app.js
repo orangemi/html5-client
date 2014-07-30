@@ -1,4 +1,4 @@
-define(['marionette', 'app/config', 'app/data', 'app/models'], function (Marionette, Config, Data, Models) {
+define(['bootstrap', 'marionette', 'app/config', 'app/data', 'app/models'], function (Bootstrap, Marionette, Config, Data, Models) {
 
 	var App = Marionette.Application.extend({
 

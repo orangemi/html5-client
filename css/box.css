@@ -6,7 +6,17 @@ body {
 	right: 0;
 }
 
-box { position:absolute; top: 0; bottom: 0; left: 0; right: 0; }
+box { 
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+}
+
+box.max {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+}
 
 
 body { background-color: #000; }

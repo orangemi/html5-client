@@ -1,14 +1,44 @@
-#main {  }
-#main>.top { height: 20px; top: 0px; bottom:auto; left: 0px; right: 0px; }
-#main>.top { background-color: red; }
+#main {
+	 -webkit-box-orient: vertical;
+	 -moz-box-orient: vertical;
+	 box-orient: vertical;
+}
+#main>.top {
+	background-color: red;
+	height: 20px;
 
-#main>.body { top: 20px; bottom: 20px; left: 0px; right: 0px; }
+}
+#main>.top {
+}
 
-#main>.bottom { height: 20px; top:auto; bottom: 0px; left: 0px; right: 0px; }
-#main>.bottom { background-color: yellow; }
+#main>.body {
+	top: 20px;
+	bottom: 20px;
+	width: 100%;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+}
 
-#main>.pop { top: 0; bottom: 0; left: 0; right: 0; }
-#main>.pop.hide { display: none; }
+#main>.bottom {
+	height: 20px;
+	top:auto;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
+#main>.bottom {
+	background-color: yellow;
+}
+
+.city {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	box-orient: vertical;
+}
 
 .menu {
 	padding: 3px;
@@ -18,7 +48,7 @@
 	-webkit-box-shadow: 0 0 15px 5px #bbb;
 	box-shadow: 0 0 15px 5px #bbb;
 	position: absolute;
-	overflow-y: scroll;
+	overflow-y: auto;
 	min-width: 50px;
 	margin: -10px;
 }
@@ -63,23 +93,30 @@
 
 
 .tablist {
-	position:absolute; top: 0; bottom: 0; left: 0; right: 0;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	box-orient: vertical;
 }
 .tablist>.tabs>.tab {
-	float:left;
 	margin-right: 10px;
 }
 
 .tablist>.pages {
 	position: relative;
-	display: -moz-box; 
-	display: -webkit-box; 
-	display: box;
 	overflow-x: hidden;
 	overflow-y: auto;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
 }
 
 .tablist>.pages>.page {
 	width: 100%;
 	position: relative;
+	transition: transform 0.5s;
+	-moz-transition: transform 0.5s;
+	-webkit-transition: transform 0.5s; 
 }

@@ -1,5 +1,6 @@
 define(['marionette', 'underscore', 'text!app/views/tab/Tab.html'], function (Marionette, _, Html) {
 	var TabView = Marionette.Layout.extend({
+		tagName : 'box',
 		template : _.template(''),
 		className : 'tab',
 		isActive : false,
@@ -26,7 +27,7 @@ define(['marionette', 'underscore', 'text!app/views/tab/Tab.html'], function (Ma
 		},
 
 		onClick : function() {
-			debugger;
+			this.trigger('click', this.$page);
 		},
 
 		getIndex : function() {
@@ -36,6 +37,7 @@ define(['marionette', 'underscore', 'text!app/views/tab/Tab.html'], function (Ma
 	});
 
 	var TabListView = Marionette.Layout.extend({
+		tagName : 'box',
 		template : _.template(Html),
 		className : 'tablist',
 		$tabs : null,
@@ -65,6 +67,13 @@ define(['marionette', 'underscore', 'text!app/views/tab/Tab.html'], function (Ma
 			tabView.render().$el.appendTo(this.$tabs);
 
 			//TODO bind events
+			tabView.on('click', function($page) {
+				var index = $page.index();
+				$page.parent().children().css({
+					'-webkit-transform' : 'translateX(-' + (index * 100) + '%)',
+				});
+
+			});
 
 		},
 	});

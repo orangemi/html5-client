@@ -7,9 +7,9 @@ function (Marionette, _, app, Html, MenuView, TabView) {
 		template : _.template(Html),
 
 		events : {
-			'click >button.hero' : 'onHeroButtonClick',
-			'click >button.info' : 'onInfoButtonClick',
-			'click >button.item' : 'onItemButtonClick',
+			'click >.buttons>button.hero' : 'onHeroButtonClick',
+			'click >.buttons>button.info' : 'onInfoButtonClick',
+			'click >.buttons>button.item' : 'onItemButtonClick',
 		},
 
 		initialize : function() {
