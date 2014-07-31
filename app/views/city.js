@@ -32,7 +32,8 @@ function (Marionette, _, app, Html, MenuView, TabView) {
 
 			var menuView = new MenuView({ menus:[
 				'1-1',
-				{ type:'input', text:'1-2:' },
+				{ type:'input', text:'1-2:', disabled: true },
+				{ type:'divider', text:'' },
 				{ type:'menu', text:'1-3 >>>', menus : [
 					'1-3-1',
 					{ type:'input', text: '1-3-2:' },
@@ -44,6 +45,7 @@ function (Marionette, _, app, Html, MenuView, TabView) {
 						'234',
 					]}
 				]},
+				{ type:'button', text:'1-2:', disabled: true },
 				{ type:'menu', text:'1-4 >>>', menus : [
 					'200',
 					{ type:'input', text: 'dd:' },

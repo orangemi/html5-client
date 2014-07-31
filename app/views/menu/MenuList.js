@@ -1,4 +1,4 @@
-define(['marionette', 'underscore'], function (Marionette, _) {
+define(['marionette', 'backbone', 'underscore'], function (Marionette, Backbone, _) {
 
 var _id = 1;
 
@@ -7,7 +7,7 @@ var _id = 1;
 		className : 'menu_list dropdown-menu',
 		template : _.template(''),
 
-		menus : null,
+//		menus : null,
 		blurTimer : null,
 
 		events : {
@@ -18,7 +18,12 @@ var _id = 1;
 
 		initialize : function(options) {
 			var self = this;
-			var menus = this.menus = options.menus || [];
+			var menus = options.menus || [];
+			menus.forEach(function(item, i) {
+				if (typeof item == 'string') menus[i] = { type: 'button', text: item };
+			});
+			this.collection = options.collection || new Backbone.Collection(menus);
+			//var menus = this.menus = options.menus || [];
 
 			this.blurTimer = null;
 this._id = _id++;
@@ -26,8 +31,8 @@ this._id = _id++;
 
 		onRender : function() {
 			var self = this;
-			this.menus.forEach(function (item) {
-				self.addItemView(item);
+			this.collection.forEach(function (itemModel) {
+				self.addItemView(itemModel);
 			});
 			this.$el.attr('tabindex', 1);
 			this.$el.show();
@@ -46,15 +51,18 @@ this._id = _id++;
 			this.$el.css('top', y + 'px');
 		},
 
-		addItemView : function(item) {
+		addItemView : function(itemModel) {
 			var self = this;
 			var view;
-			if (typeof item == 'string') item = { type: 'button', text: item };
 
-			var ItemView = MenuList.menuMap[item.type];
+			var ItemView = MenuList.menuMap[itemModel.get('type')];
+			if (itemModel.get('type') == 'divider') {
+				$('<li>').addClass('divider').appendTo(this.$el);
+				return;
+			}
 			if (!ItemView) return;
 
-			view = new ItemView(item);
+			view = new ItemView({ model: itemModel });
 			view.render().$el.appendTo(this.$el);
 			view.on('focus', function() {
 				self.onFocus();
